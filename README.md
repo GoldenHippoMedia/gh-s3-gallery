@@ -32,5 +32,10 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 ## Making changes
+### Local
+- Make sure that line 5 in page.js is set to `true`
 
-After `yarn build`, upload the `build` folder to the S3 bucket (gh-s3gallery) in AWS.
+### Uploading to S3
+- Set line 5 in page.js to `false`
+- `yarn build`
+- Once complete, upload the `build` folder to the S3 bucket (gh-s3gallery) in AWS.

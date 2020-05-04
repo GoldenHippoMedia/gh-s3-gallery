@@ -1,6 +1,9 @@
 import React from 'react';
-
 import './page.css';
+import mockData from '../../data/mockdata.json';
+// set to false when creating build
+const LOCAL = true;
+
 
 class Page extends React.Component {
   constructor(props) {
@@ -11,7 +14,6 @@ class Page extends React.Component {
       error: null
     }
     this.getUrlParams = this.getUrlParams.bind(this);
-    
   }
 
   getUrlParams() {
@@ -20,13 +22,17 @@ class Page extends React.Component {
   }
 
  componentDidMount() {
-   let bucketName = this.getUrlParams();
-   fetch(`https://5p22w2mvsh.execute-api.us-west-2.amazonaws.com/api/images${bucketName}`)
-   .then(results => {
-     return results.json()
-   })
-   .then(responseImages => this.setState({images: responseImages, isLoading: false}))
-
+   if (!LOCAL) {
+    let bucketName = this.getUrlParams();
+    fetch(`https://5p22w2mvsh.execute-api.us-west-2.amazonaws.com/api/images${bucketName}`)
+    .then(results => {
+      return results.json()
+    })
+    .then(responseImages => this.setState({images: responseImages, isLoading: false}))
+   }
+   else {
+     this.setState({images: mockData, isLoading: false});
+   }
   }
 
   render() {
