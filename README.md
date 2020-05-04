@@ -6,7 +6,7 @@ The live URL is: https://gh-s3gallery.s3-us-west-2.amazonaws.com/index.html
 ## Configuration and Usage
 
 Add the following parameters to the live URL to access the appropriate bucket:
-(ie. https://gh-s3gallery.s3-us-west-2.amazonaws.com/index.html?bucket=cdn.juvetress.com&region=us-west-2))
+(ie. https://gh-s3gallery.s3-us-west-2.amazonaws.com/index.html?bucket=cdn.gundrymd.com&region=us-west-2))
 
 1. `bucket={bucketname}`
 2. `region={AWS region bucket is located}`
