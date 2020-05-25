@@ -19,9 +19,10 @@ class Button extends Component {
 
   render() {
     return (
-      <button onClick={this.clickedMe} className="image_button">
+      <div onClick={this.clickedMe} className="image_button">
         <FontAwesomeIcon icon={faClipboard} />
-      </button>
+        <span className="image_button_copy">Copy URL</span>
+      </div>
     );
   }
 }

@@ -13,11 +13,9 @@ body {
 
 .grid-item {
   font-size: 10px;
+  position: relative;
 }
 
-.grid-item span {
-  display: block;
-}
 .grid-item:hover .image_button{
   visibility: visible;
 }
@@ -27,19 +25,16 @@ body {
   height: 150px;
 }
 
-.grid-item img {
-  object-fit: cover;
-}
-
 .grid-item__image {
   display: inline-block;
   background-size: cover;
   background-position: center;
 }
-/* .grid-item img {
-  clip-path: polygon(0 100%, 0 0, 100% 0, 80% 100%);
-} */
+
+.grid-item:hover .grid-item__image {
+  filter: blur(2px) grayscale(1);
+}
 
 img {
-  max-width: 100%
+  max-width: 100%;
 }
