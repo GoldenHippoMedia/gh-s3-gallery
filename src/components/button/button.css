@@ -1,23 +1,19 @@
-.image_button {
-  visibility: hidden;
-  cursor: pointer;
+.actions {
   position: absolute;
-  top: 60px;
-  left: 50px;
+  top: 40px;
+  left: 60px;
   background: black;
   padding: 10px;
   border-radius: 5px;
+  visibility: hidden;
 }
 
-.fa-clipboard {
-  font-size: 16px;
-}
-
-.image_button {
+.actions_button {
   color: #e3b001;
+  cursor: pointer;
+  padding: 10px;
 }
 
-.image_button_copy {
-  margin-left: 5px;
-  font-weight: 800;
+.fa-clipboard, .fa-external-link-alt {
+  font-size: 16px;
 }

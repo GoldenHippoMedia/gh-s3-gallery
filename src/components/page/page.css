@@ -16,7 +16,7 @@ body {
   position: relative;
 }
 
-.grid-item:hover .image_button{
+.grid-item:hover .actions {
   visibility: visible;
 }
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './button.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 class Button extends Component {
 
   clickedMe = () => {
+    console.log("URL copied");
     const searchParams = new URLSearchParams(this.props.bucketName);
     const bucketName = searchParams.get('bucket');
     const text = `https://${bucketName}/images/${this.props.imageURL.split('/').pop()}`
@@ -17,11 +18,20 @@ class Button extends Component {
     document.body.removeChild(dummy);
   }
 
+  openNewWindow = () => {
+    console.log('Open in new window');
+    window.open(this.props.imageURL);
+  }
+
   render() {
     return (
-      <div onClick={this.clickedMe} className="image_button">
-        <FontAwesomeIcon icon={faClipboard} />
-        <span className="image_button_copy">Copy URL</span>
+      <div className="actions">
+        <div onClick={this.clickedMe} className="actions_button">
+          <FontAwesomeIcon icon={faClipboard} />
+        </div>
+        <div onClick={this.openNewWindow} className="actions_button">
+            <FontAwesomeIcon icon={faExternalLinkAlt} />
+        </div>
       </div>
     );
   }
