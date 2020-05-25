@@ -3,8 +3,8 @@ body {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10% 10%; 
-  grid-gap: 1px;
+  grid-template-columns: 10% 10% 10% 10% 10%; 
+  grid-gap: 20px;
   background-color: #fff;
   color: #444;
   align-items: center;
@@ -12,12 +12,19 @@ body {
 }
 
 .grid-item {
-  font-size: 100%;
+  font-size: 10px;
+}
+
+.grid-item span {
+  display: block;
+}
+.grid-item:hover .image_button{
+  visibility: visible;
 }
 
 .grid-item__image, .grid-item img {
-  width: 125px;
-  height: 125px;
+  width: 150px;
+  height: 150px;
 }
 
 .grid-item img {

@@ -52,11 +52,8 @@ class Page extends React.Component {
               return (
                 <div className="grid-item" key={index} >
                   <div className="grid-item__image" style={divStyle} />
-                    <div className="bigDiv">
-                      <div style={divStyle} />
-                        <span>{image.src.split('/').pop()}</span>
-                        <Button imageURL={image.src} bucketName={bucketName}/> 
-                      </div>
+                    <span>{image.src.split('/').pop()}</span>
+                    <Button imageURL={image.src} bucketName={bucketName}/> 
                 </div >
               )
 

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import './button.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
 
 class Button extends Component {
 
@@ -13,11 +16,11 @@ class Button extends Component {
     document.execCommand("copy");
     document.body.removeChild(dummy);
   }
-  
+
   render() {
     return (
-      <button onClick={this.clickedMe}>
-        Copy URL
+      <button onClick={this.clickedMe} className="image_button">
+        <FontAwesomeIcon icon={faClipboard} />
       </button>
     );
   }
