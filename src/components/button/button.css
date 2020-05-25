@@ -11,7 +11,7 @@
 .actions_button {
   color: #e3b001;
   cursor: pointer;
-  padding: 10px;
+  margin: 15px;
 }
 
 .fa-clipboard, .fa-external-link-alt {
