@@ -5,6 +5,8 @@ The live URL is: https://gh-s3gallery.s3-us-west-2.amazonaws.com/index.html
 
 ## Configuration and Usage
 
+![Architecture Diagram for GH S3 Gallery](images/GH-S3-Gallery.png)
+
 Add the following parameters to the live URL to access the appropriate bucket:
 (ie. https://gh-s3gallery.s3-us-west-2.amazonaws.com/index.html?bucket=cdn.gundrymd.com&region=us-west-2))
 
