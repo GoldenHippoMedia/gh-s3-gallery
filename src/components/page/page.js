@@ -3,7 +3,7 @@ import Button from '../button/button';
 import './page.css';
 import mockData from '../../data/mockdata.json';
 // set to false when creating build
-const LOCAL = false;
+const LOCAL = true;
 
 
 
