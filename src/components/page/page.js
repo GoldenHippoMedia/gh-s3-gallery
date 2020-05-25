@@ -1,8 +1,10 @@
 import React from 'react';
+import Button from '../button/button';
 import './page.css';
 import mockData from '../../data/mockdata.json';
 // set to false when creating build
-const LOCAL = true;
+const LOCAL = false;
+
 
 
 class Page extends React.Component {
@@ -28,7 +30,9 @@ class Page extends React.Component {
     .then(results => {
       return results.json()
     })
-    .then(responseImages => this.setState({images: responseImages, isLoading: false}))
+    .then(responseImages => {
+      this.setState({images: responseImages, isLoading: false})
+    })
    }
    else {
      this.setState({images: mockData, isLoading: false});
@@ -36,14 +40,28 @@ class Page extends React.Component {
   }
 
   render() {
-    if (this.state.isLoading === false) {   
+    let bucketName = this.getUrlParams();
+    if (this.state.isLoading === false) {
         return (<div className="grid-container">
-          {this.state.images.map((image, index) => (
-            <div className="grid-item" key={index}>
-              <img src={image.src} alt={image.caption} />
-              <span>{image.src}</span>
-            </div>
-          ))}
+          {
+            this.state.images.map(function (image, index) {
+              const divStyle = {
+                backgroundImage: 'url(' + image.src + ')'
+              }
+
+              return (
+                <div className="grid-item" key={index} >
+                  <div className="grid-item__image" style={divStyle} />
+                    <div className="bigDiv">
+                      <div style={divStyle} />
+                        <span>{image.src.split('/').pop()}</span>
+                        <Button imageURL={image.src} bucketName={bucketName}/> 
+                      </div>
+                </div >
+              )
+
+            })
+          }
         </div>
         );
       }
