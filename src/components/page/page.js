@@ -50,7 +50,7 @@ class Page extends React.Component {
               return (
                 <div className="grid-item" key={index} >
                   <div className="grid-item__image" style={divStyle} />
-                    <span>{image.src.split('/').pop()}</span>
+                    <span className="grid-item__image-name">{image.src.split('/').pop()}</span>
                     <Button imageURL={image.src} bucketName={bucketName} />
                 </div >
               )
