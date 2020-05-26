@@ -3,9 +3,7 @@ import Button from '../button/button';
 import './page.css';
 import mockData from '../../data/mockdata.json';
 // set to false when creating build
-const LOCAL = true;
-
-
+const LOCAL = false;
 
 class Page extends React.Component {
   constructor(props) {

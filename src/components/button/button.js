@@ -5,14 +5,14 @@ import { faClipboard, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icon
 
 class Button extends Component {
 
-  clickedMe = () => {
+  copyURL = () => {
     console.log("URL copied");
     const searchParams = new URLSearchParams(this.props.bucketName);
     const bucketName = searchParams.get('bucket');
-    const text = `https://${bucketName}/images/${this.props.imageURL.split('/').pop()}`
+    const formattedUrl = `https://${bucketName}/images/${this.props.imageURL.split('/').pop()}`
     const dummy = document.createElement("input");
     document.body.appendChild(dummy);
-    dummy.setAttribute('value', text);
+    dummy.setAttribute('value', formattedUrl);
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
@@ -26,7 +26,7 @@ class Button extends Component {
   render() {
     return (
       <div className="actions">
-        <div onClick={this.clickedMe} className="actions_button">
+        <div onClick={this.copyURL} className="actions_button">
           <FontAwesomeIcon icon={faClipboard} />
         </div>
         <div onClick={this.openNewWindow} className="actions_button">
