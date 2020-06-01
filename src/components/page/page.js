@@ -14,7 +14,8 @@ class Page extends React.Component {
       images: [],
       imageNameSearchInput: '',
       originalImageData: [],
-      error: null
+      error: null, 
+
     }
     this.getUrlParams = this.getUrlParams.bind(this);
     this.searchText = this.searchText.bind(this);
@@ -30,8 +31,11 @@ class Page extends React.Component {
     .filter(image => image.src.toLowerCase()
     .includes(this.state.imageNameSearchInput.toLowerCase()));
 
-    this.setState({ imageNameSearchInput: event.target.value });
-    this.setState({ images: filteredImagesData });
+    
+    this.setState({ 
+      imageNameSearchInput: event.target.value, 
+      images: filteredImagesData,
+    });
     if (this.state.imageNameSearchInput.length - 1 === 0 ) {
       this.setState({ images: this.state.originalImageData })
     }
@@ -58,7 +62,7 @@ class Page extends React.Component {
     if (this.state.isLoading === false) {
         return (
         <div>
-          <SearchBar searchphrase={this.searchText}></SearchBar>
+          <SearchBar searchphrase={this.searchText} expanded={this.state.imageNameSearchInput}></SearchBar>
           <div className="grid-container">
             {
               this.state.images.map(function (image, index) {

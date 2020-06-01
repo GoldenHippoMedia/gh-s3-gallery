@@ -10,12 +10,14 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="search__container grid-container">
-        <div className="search grid-item">
-          <input onChange={this.props.searchphrase} placeholder="Search" className="search__bar"/>
-          <span className="search__button">
-            <FontAwesomeIcon icon={faSearch} />
-          </span>
+      <div className={this.props.expanded ? 'search__filled' : 'search__empty'}>
+        <div className="search__container grid-container">
+          <div className="search grid-item">
+            <input onChange={this.props.searchphrase} placeholder="Search" className="search__bar"/>
+            <span className="search__button">
+              <FontAwesomeIcon icon={faSearch} />
+            </span>
+          </div>
         </div>
       </div>
     );

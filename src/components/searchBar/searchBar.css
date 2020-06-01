@@ -1,6 +1,6 @@
 .search__container {
   height: 10vh;
-  margin-bottom: 90px;
+  padding-bottom: 90px;
   position: relative;
 }
 
@@ -27,7 +27,8 @@
   width: 0px;
 }
 
-.search:hover > .search__bar {
+.search:hover > .search__bar,
+.search__filled .search > .search__bar {
   width: 80vw;
   padding-left: 30px;
 }
