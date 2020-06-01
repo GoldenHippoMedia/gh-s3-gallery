@@ -42,3 +42,17 @@ body {
 img {
   max-width: 100%;
 }
+
+.loader {
+  font-size: 30px;
+  margin-top: 25vh;
+}
+
+.loader__text{
+  display: inline;
+  margin-left: 20px;
+}
+
+.loader .fa-circle-notch {
+  color: #E3AF02
+}

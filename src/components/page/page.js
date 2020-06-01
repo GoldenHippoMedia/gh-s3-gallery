@@ -1,19 +1,21 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons'
 import Button from '../button/button';
 import './page.css';
 import mockData from '../../data/mockdata.json';
 import SearchBar from '../searchBar/searchBar';
 // set to false when creating build
-const LOCAL = true;
+const LOCAL = false;
 
 class Page extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
-      images: [],
+      renderedImages: [],
       imageNameSearchInput: '',
-      originalImageData: [],
+      allImages: [],
       error: null, 
 
     }
@@ -28,11 +30,11 @@ class Page extends React.Component {
   }
 
   filterImages() {
-    let filteredImagesData = this.state.originalImageData.map(image => { return { src: image.src } })
+    let filteredImagesData = this.state.allImages.map(image => { return { src: image.src } })
       .filter(image => image.src.toLowerCase()
         .includes(this.state.imageNameSearchInput.toLowerCase()));
     this.setState({
-      images: filteredImagesData,
+      renderedImages: filteredImagesData,
     });
   }
 
@@ -51,11 +53,11 @@ class Page extends React.Component {
       return results.json()
     })
     .then(responseImages => {
-      this.setState({images: responseImages, isLoading: false, originalImageData: responseImages})
+      this.setState({renderedImages: responseImages, isLoading: false, allImages: responseImages})
     })
    }
    else {
-     this.setState({ images: mockData, isLoading: false, originalImageData: mockData});
+     this.setState({ renderedImages: mockData, isLoading: false, allImages: mockData});
    }
   }
 
@@ -64,10 +66,10 @@ class Page extends React.Component {
     if (this.state.isLoading === false) {
         return (
         <div>
-          <SearchBar searchphrase={this.searchText} expanded={this.state.imageNameSearchInput}></SearchBar>
+          <SearchBar searchphrase={this.searchText} expanded={this.state.imageNameSearchInput} />
           <div className="grid-container">
             {
-              this.state.images.map(function (image, index) {
+              this.state.renderedImages.map(function (image, index) {
                 const divStyle = {
                   backgroundImage: 'url(' + image.src + ')'
                 }
@@ -87,8 +89,9 @@ class Page extends React.Component {
         );
       }
       return (
-        <div>
-          Loading...
+        <div className="loader">
+          <FontAwesomeIcon icon={faCircleNotch} spin/>
+          <div className="loader__text">Loading...</div>
         </div>
       )
   }
