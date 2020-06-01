@@ -13,7 +13,7 @@ class Page extends React.Component {
       isLoading: true,
       images: [],
       imageNameSearchInput: '',
-      filteredImages: [],
+      originalImageData: [],
       error: null
     }
     this.getUrlParams = this.getUrlParams.bind(this);
@@ -31,7 +31,10 @@ class Page extends React.Component {
     .includes(this.state.imageNameSearchInput.toLowerCase()));
 
     this.setState({ imageNameSearchInput: event.target.value });
-    this.setState({ filteredImages: filteredImagesData });
+    this.setState({ images: filteredImagesData });
+    if (this.state.imageNameSearchInput.length - 1 === 0 ) {
+      this.setState({ images: this.state.originalImageData })
+    }
   }
 
  componentDidMount() {
@@ -42,11 +45,11 @@ class Page extends React.Component {
       return results.json()
     })
     .then(responseImages => {
-      this.setState({images: responseImages, isLoading: false, filteredImages: responseImages})
+      this.setState({images: responseImages, isLoading: false, originalImageData: responseImages})
     })
    }
    else {
-     this.setState({images: mockData, isLoading: false, filteredImages: mockData});
+     this.setState({ images: mockData, isLoading: false, originalImageData: mockData});
    }
   }
 
@@ -58,7 +61,7 @@ class Page extends React.Component {
           <SearchBar searchphrase={this.searchText}></SearchBar>
           <div className="grid-container">
             {
-              this.state.filteredImages.map(function (image, index) {
+              this.state.images.map(function (image, index) {
                 const divStyle = {
                   backgroundImage: 'url(' + image.src + ')'
                 }
