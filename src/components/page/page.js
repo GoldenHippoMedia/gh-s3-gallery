@@ -19,6 +19,7 @@ class Page extends React.Component {
     }
     this.getUrlParams = this.getUrlParams.bind(this);
     this.searchText = this.searchText.bind(this);
+    this.filterImages = this.filterImages.bind(this);
   }
 
   getUrlParams() {
@@ -26,19 +27,20 @@ class Page extends React.Component {
     return bucketName;
   }
 
-  searchText(event) {
-    let filteredImagesData = this.state.images.map(image => { return { src: image.src }})
-    .filter(image => image.src.toLowerCase()
-    .includes(this.state.imageNameSearchInput.toLowerCase()));
-
-    
-    this.setState({ 
-      imageNameSearchInput: event.target.value, 
+  filterImages() {
+    let filteredImagesData = this.state.originalImageData.map(image => { return { src: image.src } })
+      .filter(image => image.src.toLowerCase()
+        .includes(this.state.imageNameSearchInput.toLowerCase()));
+    this.setState({
       images: filteredImagesData,
     });
-    if (this.state.imageNameSearchInput.length - 1 === 0 ) {
-      this.setState({ images: this.state.originalImageData })
-    }
+  }
+
+  searchText(event) {
+    this.setState({
+      imageNameSearchInput: event.target.value},  
+      () => this.filterImages()
+    )
   }
 
  componentDidMount() {

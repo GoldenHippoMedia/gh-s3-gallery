@@ -27,8 +27,8 @@
   width: 0px;
 }
 
-.search:hover > .search__bar,
-.search__filled .search > .search__bar {
+.search:hover .search__bar,
+.search__filled .search  .search__bar {
   width: 80vw;
   padding-left: 30px;
 }
