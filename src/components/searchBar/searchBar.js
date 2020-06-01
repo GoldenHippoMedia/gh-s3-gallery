@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './searchBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class SearchBar extends Component {
 
@@ -8,9 +10,13 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="searchBar-container">
-        <p>Search By Name</p>
-        <input onChange={this.props.searchphrase}/>
+      <div className="search__container grid-container">
+        <div className="search grid-item">
+          <input onChange={this.props.searchphrase} placeholder="Search" className="search__bar"/>
+          <span className="search__button">
+            <FontAwesomeIcon icon={faSearch} />
+          </span>
+        </div>
       </div>
     );
   }

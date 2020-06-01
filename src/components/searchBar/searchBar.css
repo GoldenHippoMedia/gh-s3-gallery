@@ -1,0 +1,55 @@
+.search__container {
+  height: 10vh;
+  margin-bottom: 90px;
+  position: relative;
+}
+
+.search__container:hover{
+}
+
+
+.search {
+  position: absolute;
+  right: 5vw;
+  background: #eee;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  color: #222;
+}
+
+.search__bar { 
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #222;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.search:hover > .search__bar {
+  width: 80vw;
+  padding-left: 30px;
+}
+
+.search__container:hover > .search__btn {
+  background: white;
+}
+
+.search__button {
+    cursor: pointer;
+    color: #e3b001;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
