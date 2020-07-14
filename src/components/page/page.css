@@ -31,8 +31,9 @@ body {
 
 .grid-item__image {
   display: inline-block;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .grid-item:hover .grid-item__image {
