@@ -7,8 +7,7 @@ import mockData from "../../data/mockdata.json";
 import SearchBar from "../searchBar/searchBar";
 
 // set to false when creating build
-// const LOCAL = process.env.NODE_ENV !== "production" ? true : false;
-const LOCAL = false;
+const LOCAL = process.env.NODE_ENV !== "production" ? true : false;
 
 const Page = () => {
   const [isLoading, setLoading] = useState(true);
@@ -49,7 +48,6 @@ const Page = () => {
           return results.json();
         })
         .then(responseImages => {
-          debugger;
           setRenderedImages(responseImages);
           setLoading(false);
           setAllImages(responseImages);
