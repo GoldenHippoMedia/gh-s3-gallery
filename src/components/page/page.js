@@ -15,7 +15,7 @@ const Page = () => {
   const [imageNameSearchInput, setImageNameSearchInput] = useState("");
   const [allImages, setAllImages] = useState([]);
   const [bucketName, setBucketName] = useState("");
-  // const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
 
   function getUrlParams() {
     const bucketName = window.location.search;
@@ -61,7 +61,7 @@ const Page = () => {
 
   if (!isLoading) {
     return (
-      <div>
+      <>
         <SearchBar searchphrase={handleSearch} expanded={imageNameSearchInput} />
         <p>Results: {renderedImages.length}</p>
         <div className="grid-container">
@@ -79,7 +79,7 @@ const Page = () => {
             );
           })}
         </div>
-      </div>
+      </>
     );
   } else {
     return (
