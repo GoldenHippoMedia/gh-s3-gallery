@@ -4,6 +4,7 @@ import { lightTheme, darkTheme } from "./theme";
 import { GlobalStyles } from "./globalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb as faLightbulbReg } from "@fortawesome/free-regular-svg-icons";
 import "./App.css";
 
 import Page from "./components/page/page";
@@ -30,7 +31,7 @@ const Button = styled.button`
 `;
 
 const ToggleButton = ({ toggleTheme, theme }) => {
-  const icon = theme === faLightbulb ? faLightbulb : faLightbulb;
+  const icon = theme === "light" ? faLightbulbReg : faLightbulb;
   return (
     <Header>
       <Button onClick={toggleTheme} theme={theme}>
