@@ -11,10 +11,10 @@ import Page from "./components/page/page";
 
 const Header = styled.header`
   text-align: right;
-  padding: 10px 10px 0px;
+  padding: 0px;
 `;
 const Button = styled.button`
-  padding: 10px 20px;
+  padding: 10px 70px;
   /* background: #363537; */
   border: none;
   background: none;

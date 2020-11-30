@@ -62,8 +62,7 @@ const Page = () => {
   if (!isLoading) {
     return (
       <>
-        <SearchBar searchphrase={handleSearch} expanded={imageNameSearchInput} />
-        <p>Results: {renderedImages.length}</p>
+        <SearchBar searchphrase={handleSearch} expanded={imageNameSearchInput} resultsLength={renderedImages.length} />
         <div className="grid-container">
           {renderedImages.map(function (image, index) {
             const divStyle = {
