@@ -2,31 +2,39 @@ import React, { useState } from "react";
 import styled, { ThemeProvider, css } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import { GlobalStyles } from "./globalStyle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 
 import Page from "./components/page/page";
 
 const Header = styled.header`
   text-align: right;
-  padding: 10px 50px 0px;
+  padding: 10px 10px 0px;
 `;
 const Button = styled.button`
   padding: 10px 20px;
-  background: #363537;
-  color: #e2e2e2;
+  /* background: #363537; */
+  border: none;
+  background: none;
+  color: #363537;
+  &:focus {
+    outline: none;
+  }
   ${props =>
     props.theme === "dark" &&
     css`
-      background: #e2e2e2;
-      color: #363537;
+      /* background: #e2e2e2; */
+      color: #e3b001;
     `}
 `;
 
 const ToggleButton = ({ toggleTheme, theme }) => {
+  const icon = theme === faLightbulb ? faLightbulb : faLightbulb;
   return (
     <Header>
       <Button onClick={toggleTheme} theme={theme}>
-        {theme === "light" ? "dark" : "light"} mode
+        <FontAwesomeIcon icon={icon} size="3x" />
       </Button>
     </Header>
   );

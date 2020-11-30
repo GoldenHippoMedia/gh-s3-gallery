@@ -6,7 +6,7 @@ import { faClipboard, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icon
 const Button = ({ imageURL, bucketName }) => {
   function getCDNfromURL(url) {
     const params = new URLSearchParams(document.location.search).get("region");
-    const region = params.region ? region : "us-west-2";
+    const region = params ? params.region : "us-west-2";
     const newURL = url.replace(`s3-${region}.amazonaws.com/`, "");
     return newURL;
   }
