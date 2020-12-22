@@ -14,8 +14,8 @@ const Page = () => {
   const [renderedImages, setRenderedImages] = useState([]);
   const [imageNameSearchInput, setImageNameSearchInput] = useState("");
   const [allImages, setAllImages] = useState([]);
-  const [bucketName, setBucketName] = useState("");
-  const [error, setError] = useState(null);
+  // const [bucketName, setBucketName] = useState("");
+  // const [error, setError] = useState(null);
 
   function getUrlParams() {
     const bucketName = window.location.search;
@@ -27,10 +27,10 @@ const Page = () => {
       setRenderedImages(allImages);
     }
     let filteredImagesData = allImages
-      .map(image => {
+      .map((image) => {
         return { src: image.src };
       })
-      .filter(image => image.src.toLowerCase().includes(imageNameSearchInput.toLowerCase()));
+      .filter((image) => image.src.toLowerCase().includes(imageNameSearchInput.toLowerCase()));
     setRenderedImages(filteredImagesData);
   }
 
@@ -44,10 +44,10 @@ const Page = () => {
     if (!LOCAL) {
       let bucketName = getUrlParams();
       fetch(`https://5p22w2mvsh.execute-api.us-west-2.amazonaws.com/api/images${bucketName}`)
-        .then(results => {
+        .then((results) => {
           return results.json();
         })
-        .then(responseImages => {
+        .then((responseImages) => {
           setRenderedImages(responseImages);
           setLoading(false);
           setAllImages(responseImages);
@@ -66,14 +66,14 @@ const Page = () => {
         <div className="grid-container">
           {renderedImages.map(function (image, index) {
             const divStyle = {
-              backgroundImage: "url(" + image.src + ")"
+              backgroundImage: "url(" + image.src + ")",
             };
 
             return (
               <div className="grid-item" key={index}>
                 <div className="grid-item__image" style={divStyle} />
                 <span className="grid-item__image-name">{image.src.split("/").pop()}</span>
-                <Button imageURL={image.src} bucketName={bucketName} />
+                <Button imageURL={image.src} />
               </div>
             );
           })}

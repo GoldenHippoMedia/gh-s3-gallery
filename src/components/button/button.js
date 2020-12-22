@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./button.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Button = ({ imageURL, bucketName }) => {
+const Button = ({ imageURL }) => {
   function getCDNfromURL(url) {
     const params = new URLSearchParams(document.location.search).get("region");
-    const region = params ? params.region : "us-west-2";
+    const region = params ? params : "us-west-2";
     const newURL = url.replace(`s3-${region}.amazonaws.com/`, "");
     return newURL;
   }
@@ -25,7 +25,7 @@ const Button = ({ imageURL, bucketName }) => {
       <div onClick={copyURL} className="actions_button">
         <FontAwesomeIcon icon={faClipboard} />
       </div>
-      <a href={imageURL} className="actions_button" target="_blank">
+      <a href={imageURL} className="actions_button" target="_blank" rel="noopener noreferrer">
         <FontAwesomeIcon icon={faExternalLinkAlt} />
       </a>
     </div>
