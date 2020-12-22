@@ -1,16 +1,15 @@
 body {
-  margin: 50px;
+  /* margin: 50px; */
+  /* background-color: #fff; */
+  /* color: #444; */
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10%; 
+  grid-template-columns: 10% 10% 10% 10% 10%;
   grid-gap: 20px;
-  background-color: #fff;
-  color: #444;
   align-items: center;
   justify-content: space-evenly;
 }
-
 .grid-item {
   font-size: 12px;
   position: relative;
@@ -49,11 +48,11 @@ img {
   margin-top: 25vh;
 }
 
-.loader__text{
+.loader__text {
   display: inline;
   margin-left: 20px;
 }
 
 .loader .fa-circle-notch {
-  color: #E3AF02
+  color: #e3af02;
 }
